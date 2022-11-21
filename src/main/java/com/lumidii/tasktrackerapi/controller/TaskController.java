@@ -36,7 +36,7 @@ public class TaskController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Task> getTask(@PathVariable Integer id) throws Exception{
 		Optional<Task> task = repo.findById(id);
-		if (task.isEmpty()) {
+		if (task == null) {
 	        throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Task with id %d not found", id));
 		}
 		
